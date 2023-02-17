@@ -1,0 +1,25 @@
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 0'
+
+name: Launch Scala Steward
+
+jobs:
+  scala-steward:
+    runs-on: ubuntu-latest
+    name: Launch Scala Steward
+    steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 11
+        distribution: zulu
+    - uses: jodersky/setup-mill@master
+      with:
+        mill-version: 0.10.11
+    - name: Launch Scala Steward
+      uses: scala-steward-org/scala-steward-action@v2
+      with:
+        github-token: ${{ secrets.REPO_GITHUB_TOKEN }}
+        author-email: scala-steward@noreply.github.com
