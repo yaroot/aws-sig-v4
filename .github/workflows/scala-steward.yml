@@ -19,7 +19,7 @@ jobs:
       with:
         mill-version: 0.10.11
     - name: Launch Scala Steward
-      uses: scala-steward-org/scala-steward-action@v2
+      uses: scala-steward-org/scala-steward-action@v2.92.0
       with:
         github-token: ${{ secrets.REPO_GITHUB_TOKEN }}
         author-email: scala-steward@noreply.github.com
